@@ -8570,7 +8570,7 @@ ec:AudioCodec rdf:type owl:Class ;
 
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#AudioContent
 ec:AudioContent rdf:type owl:Class ;
-                rdfs:subClassOf ec:Programme ,
+                rdfs:subClassOf ec:EditorialSegment ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty ec:loudnessIntegratedLoudness ;
                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -8925,20 +8925,6 @@ ec:BMTemplate rdf:type owl:Class ;
                          "BMVorlage"@de .
 
 
-###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#BehindTheScenes
-ec:BehindTheScenes rdf:type owl:Class ;
-                   rdfs:subClassOf ec:EditorialExtra ;
-                   rdfs:label "BehindTheScenes"@de ,
-                              "BehindTheScenes"@en ,
-                              "BehindTheScenes"@fr ;
-                   skos:definition "Ein Editorial Extra, das eine Geschichte über Szenen des Werkes erzählt."@de ,
-                                   "Un éditorial extra qui rapport une histoire sur scenes de l'œuvre."@fr ,
-                                   "an editorial extra that provides a story about scenes of the EditorialWork"@en ;
-                   skos:example "- Kurzfilm mit Erklärungen zu den Stunts in einem Actionfilm"@de ,
-                                "- petit film expliquant les scènes de cascades d'un film d'action"@fr ,
-                                "- short film with explanations on the stunt scenes in an action movie"@en .
-
-
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#BibliographicalObject
 ec:BibliographicalObject rdf:type owl:Class ;
                          rdfs:subClassOf ec:Asset ,
@@ -8980,15 +8966,8 @@ ec:Biography rdf:type owl:Class ;
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#Bonus
 ec:Bonus rdf:type owl:Class ;
          rdfs:subClassOf ec:EditorialExtra ;
-         rdfs:label "Bonus"@de ,
-                    "Bonus"@en ,
-                    "Bonus"@fr ;
-         skos:definition "an Editorial Extra intended as an enhancing content of a main EditorialWork."@en ,
-                         "ein Editorial Extra, das als erweiternder Inhalt eines Haupt-Werkes gedacht ist."@de ,
-                         "un Éditorial Extra destiné à enrichir le contenu d'une œuvre principal."@fr ;
-         skos:example "- Additional content for a movie to be consumed separately as an enhancement"@en ,
-                      "- Contenu additionnel pour un film à consommer séparément en tant que complément."@fr ,
-                      "- Zusätzliche Inhalte für einen Film, die separat als Erweiterung konsumiert werden können"@de .
+         skos:definition "un Éditorial Extra destiné à enrichir le contenu d'une œuvre principal."@fr ;
+         skos:example "- Contenu additionnel pour un film à consommer séparément en tant que complément."@fr .
 
 
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#Brand
@@ -9015,17 +8994,6 @@ ec:Brand rdf:type owl:Class ;
 - the name of a media channel: \"BBC4\"
 - the name of a series: \"Downton Abbey\"
 - the name of a serial: \"BBC News\""""@en .
-
-
-###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#BreakingNewsItem
-ec:BreakingNewsItem rdf:type owl:Class ;
-                    rdfs:subClassOf ec:Item ;
-                    dcterms:description "Pour décrire une nouvelle de dernière minute."@fr ,
-                                        "To describe a breaking news."@en ,
-                                        "Um eine Eilmeldung zu beschreiben."@de ;
-                    rdfs:label "Breaking news item"@en ,
-                               "Dernières nouvelles"@fr ,
-                               "Eilmeldung"@de .
 
 
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#Campaign
@@ -10142,9 +10110,29 @@ ec:EditorialExtra rdf:type owl:Class ;
                   skos:definition "Ein Werk, das ein optionale Ergänzung zu einem anderen Werk ist und dazu dient zu erklären, zu unterhalten, zu werben oder ähnliches."@de ,
                                   "an EditiorialWork that serves as an optional addition to a main EditorialWork and intends  to explain, entertain, advertise or similar."@en ,
                                   "une œuvre qui sert de complément facultatif à une œuvre principal et qui vise à expliquer, à divertir, à faire de la publicité ou autre."@fr ;
-                  skos:example "Contenu supplémentaire pour un film de cinéma: bande-annonce, making of, bonus, outtakes, ..."@fr ,
-                               "Extra content for a movie: trailer, making of, bonus material, outtakes, ..."@en ,
-                               "Extra-Inhalte für einen Kinofilm: Trailer, Making of, Bonus-Material, Outtakes, ..."@de .
+                  skos:example """Contenu supplémentaire pour un film de cinéma: bande-annonce, making of, bonus, outtakes, ...
+
+BehindTheScenes:
+- Un éditorial extra qui rapport une histoire sur scenes de l'œuvre.
+- petit film expliquant les scènes de cascades d'un film d'action"""@fr ,
+                               """Extra content for a movie: trailer, making of, bonus material, outtakes ...
+
+Behind the scenes:
+- an editorial extra that provides a story about scenes of the EditorialWork
+- short film with explanations on the stunt scenes in an action movie
+
+Bonus:
+- an Editorial Extra intended as an enhancing content of a main EditorialWork.
+- Additional content for a movie to be consumed separately as an enhancement"""@en ,
+                               """Extra-Inhalte für einen Kinofilm: Trailer, Making of, Bonus-Material, Outtakes, ...
+
+\"BehindTheScenes\"
+- Ein Editorial Extra, das eine Geschichte über Szenen des Werkes erzählt.
+- Kurzfilm mit Erklärungen zu den Stunts in einem Actionfilm
+
+\"Bonus\":
+- ein Editorial Extra, das als erweiternder Inhalt eines Haupt-Werkes gedacht ist.
+- Zusätzliche Inhalte für einen Film, die separat als Erweiterung konsumiert werden können"""@de .
 
 
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#EditorialGroup
@@ -11263,6 +11251,10 @@ ec:Item rdf:type owl:Class ;
                           owl:allValuesFrom ec:Article
                         ] ,
                         [ rdf:type owl:Restriction ;
+                          owl:onProperty ec:hasDopesheet ;
+                          owl:allValuesFrom ec:Dopesheet
+                        ] ,
+                        [ rdf:type owl:Restriction ;
                           owl:onProperty ec:hasPost ;
                           owl:allValuesFrom ec:Post
                         ] ,
@@ -12169,21 +12161,6 @@ ec:MimeType rdf:type owl:Class ;
             rdfs:label "Mime type"@en ,
                        "Mime-Typ"@de ,
                        "Type Mime"@fr .
-
-
-###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#NewsItem
-ec:NewsItem rdf:type owl:Class ;
-            rdfs:subClassOf ec:Item ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty ec:hasDopesheet ;
-                              owl:allValuesFrom ec:Dopesheet
-                            ] ;
-            dcterms:description "A NewsItem aggregates all information about a particular news event."@en ,
-                                "Ein NewsItem fasst alle Informationen über ein bestimmtes Nachrichtenereignis zusammen."@de ,
-                                "Un NewsItem regroupe toutes les informations sur un événement d'actualité particulier."@fr ;
-            rdfs:label "Nachrichtenbeitrag"@de ,
-                       "News Item"@en ,
-                       "Nouvelles"@fr .
 
 
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#NormalPlayTime
@@ -13620,17 +13597,6 @@ ec:PublicationService rdf:type owl:Class ;
 - the video on demand service of Netflix"""@en .
 
 
-###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#RadioProgramme
-ec:RadioProgramme rdf:type owl:Class ;
-                  rdfs:subClassOf ec:Programme ;
-                  dcterms:description "A programme for distribution on radio channels."@en ,
-                                      "Ein Sendung zur Verbreitung in einem Radiokanal."@de ,
-                                      "Un programme pour la distribution sur les chaînes."@fr ;
-                  rdfs:label "Programme radio"@fr ,
-                             "Radio Programme"@en ,
-                             "Radiosendung"@de .
-
-
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#Rating
 ec:Rating rdf:type owl:Class ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -14424,17 +14390,6 @@ ec:SigningFormat rdf:type owl:Class ;
                             "Signing format"@en .
 
 
-###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#SportItem
-ec:SportItem rdf:type owl:Class ;
-             rdfs:subClassOf ec:Item ;
-             dcterms:description "A SportItem aggregates all information about a sport event."@en ,
-                                 "Ein SportItem fasst alle Informationen über ein Sportereignis zusammen."@de ,
-                                 "Un SportItem regroupe toutes les informations sur un événement sportif."@fr ;
-             rdfs:label "Article de sport"@fr ,
-                        "Sport item"@en ,
-                        "Sportbeitrag"@de .
-
-
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#StaffMember
 ec:StaffMember rdf:type owl:Class ;
                rdfs:subClassOf ec:Person ;
@@ -14564,17 +14519,6 @@ ec:SubtitlingFormat rdf:type owl:Class ;
                     rdfs:label "Format de sous-titrage"@fr ,
                                "Format der Untertitelung"@de ,
                                "Subtitling format"@en .
-
-
-###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#TVProgramme
-ec:TVProgramme rdf:type owl:Class ;
-               rdfs:subClassOf ec:Programme ;
-               dcterms:description "A programme for distribution on television channels."@en ,
-                                   "Ein Programm für die Ausstrahlung im Fernsehen Kanäle."@de ,
-                                   "Un programme destiné à être distribué sur les chaînes."@fr ;
-               rdfs:label "Programme TV"@fr ,
-                          "TV Programme"@en ,
-                          "TV-Sendung"@de .
 
 
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#Take
