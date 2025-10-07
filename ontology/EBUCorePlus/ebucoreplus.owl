@@ -201,6 +201,12 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 spin:imports rdf:type owl:AnnotationProperty .
 
 
+###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#domain
+ec:domain rdf:type owl:AnnotationProperty ;
+          rdfs:label "domain"@en ;
+          rdfs:range xsd:anyURI .
+
+
 ###  http://www.w3.org/2000/01/rdf-schema#example
 rdfs:example rdf:type owl:AnnotationProperty .
 
@@ -211,6 +217,22 @@ owl:maxQualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
 vs:term_status rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+skos:note rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -4259,6 +4281,14 @@ ec:usesProductionDevice rdf:type owl:ObjectProperty ;
 rdfs:related rdf:type owl:ObjectProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#related
+skos:related rdf:type owl:ObjectProperty .
+
+
 ###  http://www.w3.org/2006/time#hasTRS
 time:hasTRS rdf:type owl:ObjectProperty ;
             dcterms:description "Das zeitliche Referenzsystem, das von einer zeitlichen Positions- oder Ausdehnungsbeschreibung verwendet wird."@de ,
@@ -8118,6 +8148,7 @@ ec:Asset rdf:type owl:Class ;
          dcterms:description "Assets are EditorialObjects or Resources with associated Rights. An «Asset» is an object to which an identifier will be associated at commissioning time. It serves as a central reference point to manage rights associated with EditorialObjects, MediaResources or Essences, and - by inference - PublicationEvents (distribution and exploitation conditions). Remember that the MediaResources or Essences will in this model always be represented by an EditorialObject. Example: The CCDM model allows the association of Rights to a related EditorialObject that is represented by one or more Essences."@en ,
                              "Assets sind Inhaltsobjekte oder Medienobjekte und ihre zugeordneten (Verwertungs-)Rechte. Ein Asset erhält durch die Beauftragung einen Identifikator. Es dient als zentrale Referenz, um die Rechte zu verwalten, die mit Inhaltsobjekten, Medienobjekten, Essenzen sowie Veröffentlichungsereignissen (per Deduktion) verknüpft sind. Achtung: Medienobjekte oder Essenzen werden in diesem Modell immer durch Inhaltsobjekte repräsentiert. Beispiel: CCDM gestattet die Verknüpfung von Verwertungsrechten mit einem Inhaltsobjekt, das von einem oder auch mehreren Essenzen repräsentiert wird."@de ,
                              "Les actifs sont des EditorialObjects ou des ressources avec des droits associés. Un \"Asset\" est un objet auquel un identifiant sera associé lors de la mise en service. Il sert de point de référence central pour gérer les droits associés aux EditorialObjects, MediaResources ou Essences, et par déduction - les PublicationEvents (conditions de distribution et d'exploitation). Il est a noté que les MediaResources ou Essences seront dans ce modèle toujours représentées par un EditorialObject. Exemple : Le modèle CCDM permet l'association de droits à un EditorialObject connexe représenté par une ou plusieurs essences, Essences."@fr ;
+         ec:domain ec:d_editorial ;
          rdfs:label "Actif"@fr ,
                     "Asset"@de ,
                     "Asset"@en ;
@@ -14841,9 +14872,17 @@ ec:WrappingType rdf:type owl:Class ;
                            "Wrapping type"@en .
 
 
+###  http://www.w3.org/2004/02/skos/core#Collection
+skos:Collection rdf:type owl:Class .
+
+
 ###  http://www.w3.org/2004/02/skos/core#Concept
 skos:Concept rdf:type owl:Class ;
              rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class .
 
 
 ###  http://www.w3.org/2006/time#DateTimeDescription
@@ -14923,6 +14962,16 @@ ec:alternativeTitleTypes rdf:type owl:NamedIndividual ,
                          skos:prefLabel "Alternative title types"@en .
 
 
+###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#d_editorial
+ec:d_editorial rdf:type owl:NamedIndividual ,
+                        skos:Concept .
+
+
+###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#d_publishing
+ec:d_publishing rdf:type owl:NamedIndividual ,
+                         skos:Concept .
+
+
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#originalTitle
 ec:originalTitle rdf:type owl:NamedIndividual ,
                           skos:Concept ;
@@ -14988,8 +15037,8 @@ dcterms:contributor dcterms:description "Dans le contexte d'EBUCore, réservé �
                      rdfs:label "Beitragender"@de ;
                      dcterms:description "In the context of EBUCore, reserved for the annotation of RDF properties."@en ,
                                          "Im Kontext von EBUCore für die Annotation von RDF-Eigenschaften reserviert."@de ;
-                     rdfs:label "Contributeur"@fr ,
-                                "Contributor"@en .
+                     rdfs:label "Contributor"@en ,
+                                "Contributeur"@fr .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
