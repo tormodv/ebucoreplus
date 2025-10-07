@@ -7951,6 +7951,7 @@ ec:ArtefactType rdf:type owl:Class ;
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#Article
 ec:Article rdf:type owl:Class ;
            rdfs:subClassOf ec:EditorialWork ;
+           ec:domain ":d_editorial"^^xsd:string ;
            rdfs:label "Article"@en ,
                       "Article"@fr ,
                       "Artikel"@de ;
@@ -8148,7 +8149,7 @@ ec:Asset rdf:type owl:Class ;
          dcterms:description "Assets are EditorialObjects or Resources with associated Rights. An «Asset» is an object to which an identifier will be associated at commissioning time. It serves as a central reference point to manage rights associated with EditorialObjects, MediaResources or Essences, and - by inference - PublicationEvents (distribution and exploitation conditions). Remember that the MediaResources or Essences will in this model always be represented by an EditorialObject. Example: The CCDM model allows the association of Rights to a related EditorialObject that is represented by one or more Essences."@en ,
                              "Assets sind Inhaltsobjekte oder Medienobjekte und ihre zugeordneten (Verwertungs-)Rechte. Ein Asset erhält durch die Beauftragung einen Identifikator. Es dient als zentrale Referenz, um die Rechte zu verwalten, die mit Inhaltsobjekten, Medienobjekten, Essenzen sowie Veröffentlichungsereignissen (per Deduktion) verknüpft sind. Achtung: Medienobjekte oder Essenzen werden in diesem Modell immer durch Inhaltsobjekte repräsentiert. Beispiel: CCDM gestattet die Verknüpfung von Verwertungsrechten mit einem Inhaltsobjekt, das von einem oder auch mehreren Essenzen repräsentiert wird."@de ,
                              "Les actifs sont des EditorialObjects ou des ressources avec des droits associés. Un \"Asset\" est un objet auquel un identifiant sera associé lors de la mise en service. Il sert de point de référence central pour gérer les droits associés aux EditorialObjects, MediaResources ou Essences, et par déduction - les PublicationEvents (conditions de distribution et d'exploitation). Il est a noté que les MediaResources ou Essences seront dans ce modèle toujours représentées par un EditorialObject. Exemple : Le modèle CCDM permet l'association de droits à un EditorialObject connexe représenté par une ou plusieurs essences, Essences."@fr ;
-         ec:domain ec:d_editorial ;
+         ec:domain ":d_editorial"^^xsd:string ;
          rdfs:label "Actif"@fr ,
                     "Asset"@de ,
                     "Asset"@en ;
@@ -8411,6 +8412,7 @@ ec:AudioContent rdf:type owl:Class ;
                 dcterms:description "An audioContent defines one component of a programme (e.g. background music), its association with an audioGroup (e.g. a 2.0 audioPackFormat of audioChannelFormats for stereo reproduction), its association with an audioStreamFormat, and its set of loudness parameters."@en ,
                                     "Ein audioContent definiert eine Komponente eines Programms (z.B. Hintergrundmusik Musik), seine Zuordnung zu einer audioGroup (z.B. ein 2.0 audioPackFormat von audioChannelFormats für die Stereowiedergabe), seine Zuordnung zu einem audioStreamFormat und seine Lautheitsparameter."@de ,
                                     "Un AudioContent définit un composant d'un programme (par exemple, une musique de fond musique), son association avec un audioGroup (par exemple, un 2.0 audioPackFormat de audioChannelFormats pour la reproduction stéréo), son association avec un audioStreamFormat, et son ensemble de paramètres d'intensité sonore."@fr ;
+                ec:domain ":d_editorial"^^xsd:string ;
                 rdfs:label "Audio content"@en ,
                            "Audio-inhalt"@de ,
                            "Contenu audio"@fr .
@@ -8506,6 +8508,7 @@ ec:AudioProgramme rdf:type owl:Class ;
                                     owl:onProperty ec:loudnessMethod ;
                                     owl:maxCardinality "1"^^xsd:nonNegativeInteger
                                   ] ;
+                  ec:domain ":d_editorial"^^xsd:string ;
                   rdfs:isDefinedBy <https://tech.ebu.ch/docs/r/r128.pdf> ;
                   rdfs:label "Audio Programm"@de ,
                              "Audio programme"@en ,
@@ -8719,6 +8722,7 @@ ec:BibliographicalObject rdf:type owl:Class ;
                          dcterms:description "Documents de nature diverse."@fr ,
                                              "Documents of various nature."@en ,
                                              "Dokumente verschiedener Art."@de ;
+                         ec:domain ":d_editorial"^^xsd:string ;
                          rdfs:label "Bibliographical object"@en ,
                                     "Bibliographisches Objekt"@de ,
                                     "Objet bibliographique"@fr .
@@ -8730,6 +8734,7 @@ ec:Biography rdf:type owl:Class ;
              dcterms:description "Pour enregistrer une biographie."@fr ,
                                  "To record a biography."@en ,
                                  "Um eine Biographie aufzunehmen."@de ;
+             ec:domain ":d_editorial"^^xsd:string ;
              rdfs:label "Biographie"@de ,
                         "Biographie"@fr ,
                         "Biography"@en .
@@ -8789,6 +8794,7 @@ ec:Campaign rdf:type owl:Class ;
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#CampaignPackage
 ec:CampaignPackage rdf:type owl:Class ;
                    rdfs:subClassOf ec:EditorialGroup ;
+                   ec:domain ":d_editorial"^^xsd:string ;
                    rdfs:label "Campaign package"@en ,
                               "Kampagnen-Paket"@de ,
                               "Paquet de campagne"@fr ;
@@ -8956,6 +8962,7 @@ ec:Collection rdf:type owl:Class ;
               dcterms:description "A group of EditorialObjects. There can be many types of collections for which specific sub-classes should be defined. In the worl of archives, A collection corresponds to all items belonging to an individual / collector."@en ,
                                   "Eine Gruppe von EditorialObjects. Es kann viele Arten von Sammlungen geben, für die spezifische Unterklassen definiert werden sollten. In der Welt der Archiven entspricht eine Sammlung allen Objekten, die zu einem einzelnen / Sammler."@de ,
                                   "Un groupe d'EditorialObjects. Il peut y avoir de nombreux types de collections pour lesquelles des sous-classes spécifiques doivent être définies. Dans le monde des archives, une collection correspond à tous les éléments appartenant à un individu / collectionneur."@fr ;
+              ec:domain ":d_editorial"^^xsd:string ;
               rdfs:label "Collection"@en ,
                          "Collection"@fr ,
                          "Kollektion"@de .
@@ -9879,6 +9886,7 @@ ec:EditorialExtra rdf:type owl:Class ;
                                     owl:onProperty ec:hasProgramme ;
                                     owl:allValuesFrom ec:Programme
                                   ] ;
+                  ec:domain ":d_editorial"^^xsd:string ;
                   rdfs:label "Editorial Extra"@de ,
                              "Editorial Extra"@en ,
                              "Éditorial Extra"@fr ;
@@ -9957,6 +9965,7 @@ Trailer:
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#EditorialFormat
 ec:EditorialFormat rdf:type owl:Class ;
                    rdfs:subClassOf ec:EditorialGroup ;
+                   ec:domain ":d_editorial"^^xsd:string ;
                    rdfs:label "Format"@de ,
                               "Format"@en ,
                               "Format"@fr ;
@@ -9999,6 +10008,7 @@ ec:EditorialGroup rdf:type owl:Class ;
                   dcterms:description "Pour définir une collection / un groupe de médias ressources, par exemple une série composée d'épisodes."@fr ,
                                       "To define a collection / group of media resources, for example a series made of episodes."@en ,
                                       "Zur Definition einer Sammlung/Gruppe von Medien Resourcen zu definieren, zum Beispiel eine Serie, die aus Episoden besteht."@de ;
+                  ec:domain ":d_editorial"^^xsd:string ;
                   rdfs:label "Editorial group"@en ,
                              "Groupe de rédaction"@fr ,
                              "Gruppe von Medieninhalten"@de .
@@ -10448,6 +10458,7 @@ o L'InterviewPart est liée au NewsItem à l'aide de la propriété hasMember. S
 o L'InterviewPart est liée à sa source originale à l'aide de la propriété existsAs.
 o L'interview instancie une MediaResource, qui à son tour est liée à la MediaResource du NewsBroadcast à l'aide de la propriété hasSource.
 o Représentation de la segmentation : Les TimelineTracks sont préférés aux hasPart-properties, lorsqu'un récapitulatif est nécessaire, par exemple pour la diffusion."""@fr ;
+                   ec:domain ":d_editorial"^^xsd:string ;
                    rdfs:label "Editorial object"@en ,
                               "Medieninhalt"@de ,
                               "Objet éditorial"@fr ;
@@ -10496,6 +10507,7 @@ ec:EditorialSegment rdf:type owl:Class ;
                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                       owl:onDataRange xsd:integer
                                     ] ;
+                    ec:domain ":d_editorial"^^xsd:string ;
                     rdfs:label "Editorial Segment"@en ,
                                "Redaktioneller Abschnitt"@de ,
                                "Segment éditorial"@fr ;
@@ -10535,6 +10547,7 @@ ec:EditorialWork rdf:type owl:Class ;
                                    owl:onProperty ec:promotes ;
                                    owl:allValuesFrom ec:EditorialWork
                                  ] ;
+                 ec:domain ":d_editorial"^^xsd:string ;
                  rdfs:label "Editorial work"@en ,
                             "Werk"@de ,
                             "Œuvre"@fr ;
@@ -11067,6 +11080,7 @@ ec:Item rdf:type owl:Class ;
         dcterms:description "An item e.g. newsItem or sportItem"@en ,
                             "Ein Element, z.B. newsItem oder sportItem"@de ,
                             "Un élément, par exemple newsItem ou sportItem"@fr ;
+        ec:domain ":d_editorial"^^xsd:string ;
         rdfs:label "Article"@fr ,
                    "Beitrag"@de ,
                    "Item"@en ;
@@ -12409,6 +12423,7 @@ ec:PictureDisplayFormat rdf:type owl:Class ;
 ###  http://www.ebu.ch/metadata/ontologies/ebucoreplus#Post
 ec:Post rdf:type owl:Class ;
         rdfs:subClassOf ec:EditorialWork ;
+        ec:domain ":d_editorial"^^xsd:string ;
         rdfs:label "Post"@de ,
                    "Post"@en ,
                    "Post"@fr ;
@@ -12659,6 +12674,7 @@ ec:Programme rdf:type owl:Class ;
              dcterms:description "An EditorialObject corresponding to a MediaResource ready for publication."@en ,
                                  "Ein EditorialObject, das einer MediaResource, die zur Veröffentlichung bereit ist."@de ,
                                  "Un EditorialObject correspondant à une MediaResource prête à être publiée."@fr ;
+             ec:domain ":d_editorial"^^xsd:string ;
              rdfs:label "Programme"@en ,
                         "Programme"@fr ,
                         "Sendung"@de ;
@@ -12689,6 +12705,7 @@ ec:Promotion rdf:type owl:Class ;
                                owl:onProperty ec:isMemberOf ;
                                owl:allValuesFrom ec:CampaignPackage
                              ] ;
+             ec:domain ":d_editorial"^^xsd:string ;
              rdfs:label "Promotion"@en ,
                         "Promotion"@fr ,
                         "Werbung"@de ;
@@ -13453,6 +13470,7 @@ ec:Record rdf:type owl:Class ;
           dcterms:description "Die Aufzeichnung der Beschreibung eines Assets."@de ,
                               "L'enregistrement de la description d'un actif."@fr ,
                               "The record the description of an Asset."@en ;
+          ec:domain ":d_editorial"^^xsd:string ;
           rdfs:label "Enregistrement"@fr ,
                      "Record"@en ,
                      "Rekord"@de .
@@ -13541,6 +13559,7 @@ ec:Reminder rdf:type owl:Class ;
                               owl:onProperty ec:isMemberOf ;
                               owl:allValuesFrom ec:CampaignPackage
                             ] ;
+            ec:domain ":d_editorial"^^xsd:string ;
             rdfs:label "Erinnerung"@de ,
                        "Rappel"@fr ,
                        "Reminder"@en ;
@@ -13819,6 +13838,7 @@ ec:Review rdf:type owl:Class ;
           dcterms:description "Pour fournir un examen."@fr ,
                               "To provide a Review."@en ,
                               "Um eine Rezension zu erstellen."@de ;
+          ec:domain ":d_editorial"^^xsd:string ;
           rdfs:label "Consulter"@fr ,
                      "Review"@en ,
                      "Rezension"@de .
@@ -14006,6 +14026,7 @@ ec:Scene rdf:type owl:Class ;
          dcterms:description "A sequence of continuous action"@en ,
                              "Eine Sequenz mit kontinuierlicher Handlung"@de ,
                              "Une séquence d'action continue"@fr ;
+         ec:domain ":d_editorial"^^xsd:string ;
          rdfs:label "Scene"@en ,
                     "Scène"@fr ,
                     "Szene"@de ;
@@ -14040,6 +14061,7 @@ ec:Season rdf:type owl:Class ;
           dcterms:description "A series can be composed of one or more seasons clustering a certain number of episodes. Fro this reason, seasons are related to series using the isRelatedTo property."@en ,
                               "Eine Serie kann aus einer oder mehreren Staffeln bestehen die eine bestimmte Anzahl von Episoden zusammenfassen. Aus diesem Grund werden Staffeln mit Serien verknüpft mit Hilfe der Eigenschaft isRelatedTo."@de ,
                               "Une série peut être composée d'une ou plusieurs saisons regroupant un certain nombre d'épisodes. Pour cette raison, les saisons sont liées aux séries à l'aide de la propriété isRelatedTo."@fr ;
+          ec:domain ":d_editorial"^^xsd:string ;
           rdfs:label "Saison"@fr ,
                      "Season"@en ,
                      "Staffel"@de ;
@@ -14068,6 +14090,7 @@ ec:Serial rdf:type owl:Class ;
           dcterms:description "Werke, die (z. B. in einer Zeitschrift oder im Fernsehen) in Teilen erscheinen"@de ,
                               "a work appearing (as in a magazine or on television) in parts"@en ,
                               "œuvres apparaissant (comme dans un magazine ou à la télévision) en parties"@fr ;
+          ec:domain ":d_editorial"^^xsd:string ;
           rdfs:label "Serial"@en ,
                      "Serie"@de ,
                      "Série"@fr ;
@@ -14093,6 +14116,7 @@ ec:Series rdf:type owl:Class ;
           dcterms:description "Les séries sont un type particulier de collection. TV ou radio sont composées d'épisodes. Les épisodes suivent souvent un schéma de publication régulier ou traitent de sujets similaires ou des mêmes personnages."@fr ,
                               "Serien sind eine besondere Art von Sammlungen. TV oder Radio-Serien bestehen aus Episoden. Episoden folgen häufig einem Publikationsschema oder behandeln ähnliche Themen oder beinhalten dieselben Figuren."@de ,
                               "Series is a particular type of collection. TV or Radio Series are composed of Episodes. Episodes often follow a regular publication scheme or deal with similar topics or the same characters."@en ;
+          ec:domain ":d_editorial"^^xsd:string ;
           rdfs:label "Reihe"@de ,
                      "Series"@en ,
                      "Série"@fr ;
@@ -14136,6 +14160,7 @@ ec:Shot rdf:type owl:Class ;
         dcterms:description "A film sequence photographed continuously by one camera"@en ,
                             "Eine Filmsequenz, die kontinuierlich von einer Kamera aufgenommen wird"@de ,
                             "Une séquence de film photographiée en continu par une seule caméra."@fr ;
+        ec:domain ":d_editorial"^^xsd:string ;
         rdfs:label "Coup de feu"@fr ,
                    "Schuss"@de ,
                    "Shot"@en ;
@@ -14331,6 +14356,7 @@ ec:Take rdf:type owl:Class ;
         dcterms:description "A particular version of a scene or sequence of sound or vision photographed or recorded continuously at one time"@en ,
                             "Eine bestimmte Version einer Szene oder einer Bild- oder Tonsequenz, die kontinuierlich zu einem Zeitpunkt fotografiert oder aufgenommen wurde."@de ,
                             "Une version particulière d'une scène ou d'une séquence sonore ou visuelle photographiée ou enregistrée en continu à un moment donné."@fr ;
+        ec:domain ":d_editorial"^^xsd:string ;
         rdfs:label "Nehmen Sie"@de ,
                    "Prenez"@fr ,
                    "Take"@en ;
