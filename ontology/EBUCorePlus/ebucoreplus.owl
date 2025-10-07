@@ -9874,6 +9874,7 @@ ec:EditUnitCount rdf:type owl:Class ;
                  dcterms:description "An edit unit can be a frame, a sample or a extent of time."@en ,
                                      "Eine Bearbeitungseinheit kann ein Frame, ein Sample oder eine Zeitspanne sein."@de ,
                                      "Une unité de montage peut être un cadre, un échantillon ou une durée."@fr ;
+                 ec:domain ":d_editorial"^^xsd:string ;
                  rdfs:label "Anzahl der Einheiten bearbeiten"@de ,
                             "Edit unit count"@en ,
                             "Modifier le nombre d'unités"@fr .
@@ -12000,6 +12001,7 @@ ec:NormalPlayTime rdf:type owl:Class ;
                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onDataRange xsd:time
                                   ] ;
+                  ec:domain ":d_editorial"^^xsd:string ;
                   rdfs:label "Normal play time"@en ,
                              "Normale Spielzeit"@de ,
                              "Temps de jeu normal"@fr .
@@ -14573,6 +14575,7 @@ ec:TimeCode rdf:type owl:Class ;
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onDataRange xsd:string
                             ] ;
+            ec:domain ":d_editorial"^^xsd:string ;
             rdfs:label "Code temporel"@fr ,
                        "Time code"@en ,
                        "Zeitcode"@de .
@@ -14586,6 +14589,7 @@ ec:TimeCodeDropFrame rdf:type owl:Class ;
                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                        owl:onDataRange xsd:string
                                      ] ;
+                     ec:domain ":d_editorial"^^xsd:string ;
                      rdfs:label "Code temporel avec dropframe"@fr ,
                                 "Time code with dropframe"@en ,
                                 "Zeitcode mit Dropframe"@de .
@@ -14643,6 +14647,7 @@ ec:TimelinePoint rdf:type owl:Class ;
                                    owl:onDataRange xsd:float
                                  ] ;
                  dc:description "A precise time point  of a media resource"@en ;
+                 ec:domain ":d_editorial"^^xsd:string ;
                  rdfs:label "Point de repère chronologique"@fr ,
                             "Punkt auf der Zeitachse"@de ,
                             "Timeline point"@en .
@@ -14679,6 +14684,7 @@ ec:TimelineTrack rdf:type owl:Class ;
                  dcterms:description "Definiert den zeitlichen Ablauf von Medieninhalten."@de ,
                                      "Permet de définir une séquence temporelle d'EditorialObjects."@fr ,
                                      "To define a timed sequence of EditorialObjects."@en ;
+                 ec:domain ":d_editorial"^^xsd:string ;
                  rdfs:label "Piste chronologique"@fr ,
                             "Timeline track"@en ,
                             "Zeitachse"@de .
